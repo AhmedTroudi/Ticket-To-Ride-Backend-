@@ -33,7 +33,7 @@ public class ReservationController {
 
     }
 
-    @PostMapping("/reservations/{id}")
+    @PutMapping("/reservations/{id}")
     public ResponseEntity<Object> updateReservation(@RequestBody Reservation reservation, @PathVariable long id) {
         Optional<Reservation> reservationOptional = repository.findById(id);
         if (!reservationOptional.isPresent())
@@ -43,7 +43,7 @@ public class ReservationController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/reservations/{id}")
+    @DeleteMapping("/reservations/{id}")
     public void deleteReservation(@PathVariable long id) {
         repository.deleteById(id);
     }

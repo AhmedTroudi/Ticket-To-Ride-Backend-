@@ -41,7 +41,7 @@ public class FlightController {
 
     }
 
-    @PostMapping("/flights/{id}")
+    @PutMapping("/flights/{id}")
     public ResponseEntity<Object> updateFlight(@RequestBody Flight flight, @PathVariable long id) {
         Optional<Flight> flightOptional = repository.findById(id);
         if (!flightOptional.isPresent())
@@ -51,7 +51,7 @@ public class FlightController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/flights/{id}")
+    @DeleteMapping("/flights/{id}")
     public void deleteFlight(@PathVariable long id) {
         repository.deleteById(id);
     }
